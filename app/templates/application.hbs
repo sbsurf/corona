@@ -1,12 +1,33 @@
-<h2 id="title">Retrieve Weather:</h2>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Corona Environmental Consulting</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://www.nanakdev.com">Yuri Rivkind</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
 
-<div class="weather">
-  {{input type="text" placeholder="Enter city" value=city}}
-  <button {{action 'retrieve'}}>Retrieve</button>
-</div>
 
-<div {{bind-attr class="successful:visible:hidden"}}>
-  <h3>Coordinates:</h3>
-  Lat: <span>{{lat}}</span>
-  Lon: <span>{{lon}}</span>
+  <h3 id="title">City Lookup:</h3>
+
+  <form class="form-inline">
+    <div class="form-group">
+      {{input type="text" placeholder="Enter city" value=city class="form-control"}}
+      <button type="submit" class="btn btn-primary" {{action 'retrieve'}}>Retrieve</button>
+    </div>
+
+    <div {{bind-attr class="successful:visible:hidden"}}>
+      <h3>Coordinates:</h3>
+
+      <p class="text-success">
+        <strong>LAT: {{lat}}</strong>
+        <strong>LON: {{lon}}</strong>
+      </p>
+    </div>
 </div>

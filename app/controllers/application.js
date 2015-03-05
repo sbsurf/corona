@@ -2,10 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   city: '',
-  lat: 0,
-  lon: 0,
-  zoom: 16,
-  successful: false,
+  lat: 39,
+  lng: -98,
+  zoom: 2,
+  isSuccessful: false,
+  isError: false,
+  errorMessage: '',
 
   actions: {
     retrieve: function () {
@@ -16,11 +18,22 @@ export default Ember.Controller.extend({
         url: 'http://api.openweathermap.org/data/2.5/weather',
         data: {q: city}
       }).done(function (data) {
-        self.set('lat', data.coord.lat);
-        self.set('lon', data.coord.lon);
-        self.set('successful', true);
+        if (data.cod == '404') {
+          self.set('lat', 39);
+          self.set('lng', -98);
+          self.set('zoom', 2);
+          self.set('isSuccessful', false);
+          self.set('isError', true);
+          self.set('errorMessage', data.message);
+        } else if (Ember.$.isNumeric(data.coord.lat) && Ember.$.isNumeric(data.coord.lon)) {
+          self.set('lat', data.coord.lat);
+          self.set('lng', data.coord.lon);
+          self.set('zoom', 9);
+          self.set('isSuccessful', true);
+          self.set('isError', false);
+        }
       }).fail(function (jqXHR, textStatus, errorThrown) {
-        self.set('successful', false);
+        self.set('isSuccessful', false);
         Ember.Logger.error(errorThrown);
       });
     }

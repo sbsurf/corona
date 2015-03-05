@@ -22,15 +22,27 @@
       <button type="submit" class="btn btn-primary" {{action 'retrieve'}}>Retrieve</button>
     </div>
 
-    <div {{bind-attr class="successful:visible:hidden"}}>
+    <div {{bind-attr class="isSuccessful:visible:hidden"}}>
       <h3>Coordinates:</h3>
 
       <p class="text-success">
         <strong>LAT: {{lat}}</strong>
-        <strong>LON: {{lon}}</strong>
+        <strong>LON: {{lng}}</strong>
+      </p>
+    </div>
+
+    <div {{bind-attr class="isError:visible:hidden"}}>
+      <br/>
+      <p class="text-danger">
+        <strong>{{errorMessage}}</strong>
       </p>
     </div>
   </form>
-
-  {{!google-map lat=lat lng=lng zoom=zoom}}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      {{google-map lat=lat lng=lng zoom=zoom}}
+    </div>
+  </div>
 </div>

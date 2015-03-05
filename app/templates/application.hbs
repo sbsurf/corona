@@ -1,3 +1,12 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">Retrieve Weather:</h2>
 
-{{outlet}}
+<div class="weather">
+  {{input type="text" placeholder="Enter city" value=city}}
+  <button {{action 'retrieve'}}>Retrieve</button>
+</div>
+
+<div {{bind-attr class="successful:visible:hidden"}}>
+  <h3>Coordinates:</h3>
+  Lat: <span>{{lat}}</span>
+  Lon: <span>{{lon}}</span>
+</div>

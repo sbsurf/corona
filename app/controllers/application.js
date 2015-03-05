@@ -2,8 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   city: '',
-  lat: '',
-  lon: '',
+  lat: 0,
+  lon: 0,
+  zoom: 16,
   successful: false,
 
   actions: {

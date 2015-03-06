@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
         url: 'http://api.openweathermap.org/data/2.5/weather',
         data: {q: city}
       }).done(function (data) {
-        if (data.cod == '404') {
+        if (data.cod === '404') {
           self.set('lat', 39);
           self.set('lng', -98);
           self.set('zoom', 2);

@@ -3,6 +3,8 @@
 This is a quick and dirty Ember-CLI app created to provide a solution for a job interview task. 
 It hits an external API to look up a city's coordinates and show it on the map.
 
+For a demo, go to: http://corona.nanakdev.com
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

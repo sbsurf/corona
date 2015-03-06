@@ -1,7 +1,7 @@
 # Corona
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a quick and dirty Ember-CLI app created to provide a solution for a job interview task. 
+It hits an external API to look up a city's coordinates and show it on the map.
 
 ## Prerequisites
 
